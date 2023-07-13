@@ -4,10 +4,12 @@ import com.example.demo.Dto.FilmDTO;
 import com.example.demo.Entity.Film;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface FilmService {
     Film addFilm(FilmDTO filmDTO);
 
-    int findId(FilmDTO filmDTO) throws SQLException;
+    int findIdFilmByName(String name) throws SQLException;
+    List<FilmDTO> getAllFilms();
 
 }

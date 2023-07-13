@@ -3,14 +3,11 @@ package com.example.demo.Entity;
 import jakarta.persistence.*;
 
 
-import static jakarta.persistence.GenerationType.AUTO;
-
-
 @Entity
-@Table(name= "film_detail")
+@Table(name= "film")
 public class Film {
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name= "name")
     private String name;
@@ -20,8 +17,11 @@ public class Film {
     private int price;
     @Column(name = "category")
     private String category;
-    @Column(name = "desciption")
-    private String desciption;
+    @Column(name = "desciption1")
+    private String desciption1;
+    @Column(name = "desciption2")
+
+    private String desciption2="";
 
 
 
@@ -30,7 +30,12 @@ public class Film {
         this.linkimage = linkimage;
         this.price = price;
         this.category = category;
-        this.desciption = desciption;
+        if (desciption.length()<255)
+            this.desciption1 = desciption;
+        else{
+            this.desciption1 = desciption.substring(0,254);
+            this.desciption2 = desciption.substring(255);
+        }
     }
 
     public Film() {
@@ -77,11 +82,16 @@ public class Film {
     }
 
     public String getDesciption() {
-        return desciption;
+        return desciption1+desciption2;
     }
 
     public void setDesciption(String desciption) {
-        this.desciption = desciption;
+        if (desciption.length()<255)
+            this.desciption1 = desciption;
+        else{
+            this.desciption1 = desciption.substring(0,254);
+            this.desciption2 = desciption.substring(255);
+        }
     }
 
     @Override
@@ -92,7 +102,7 @@ public class Film {
                 ", linkimage='" + linkimage + '\'' +
                 ", price=" + price +
                 ", category='" + category + '\'' +
-                ", desciption='" + desciption + '\'' +
+                ", desciption='" + desciption1+desciption2 + '\'' +
                 '}';
     }
 }

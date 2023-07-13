@@ -1,25 +1,53 @@
 package com.example.demo.Dto;
 
 
-import jakarta.persistence.Id;
-
 public class CinemaDTO {
 
-    private int id_list;
-    private int Id;
-
+    private int id;
     private String name;
 
-    private String lichchieu;
+    private String address;
 
-    private String namerap;
+    private String hotline;
 
-    public CinemaDTO(int id_list,int id,String name, String lichchieu, String namerap) {
-        this.id_list=id_list;
-        this.Id = id;
+    public CinemaDTO(int id, String name, String address, String hotline) {
+        this.id = id;
         this.name = name;
-        this.lichchieu = lichchieu;
-        this.namerap = namerap;
+        this.address = address;
+        this.hotline = hotline;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getHotline() {
+        return hotline;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHotline(String hotline) {
+        this.hotline = hotline;
     }
 
     public CinemaDTO() {
@@ -28,42 +56,9 @@ public class CinemaDTO {
     @Override
     public String toString() {
         return "CinemaDTO{" +
-                "Id=" + Id +
-                ", name='" + name + '\'' +
-                ", lichchieu='" + lichchieu + '\'' +
-                ", namerap=" + namerap +
+                "id=" + id +
+                ", address=" + address +
+                ", hotline='" + hotline + '\'' +
                 '}';
-    }
-
-    public int getId() {
-        return Id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLichchieu() {
-        return lichchieu;
-    }
-
-    public String getNamerap() {
-        return namerap;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLichchieu(String lichchieu) {
-        this.lichchieu = lichchieu;
-    }
-
-    public void setNamerap(String namerap) {
-        this.namerap = namerap;
     }
 }

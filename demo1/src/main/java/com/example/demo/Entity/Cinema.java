@@ -1,82 +1,28 @@
 package com.example.demo.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static jakarta.persistence.GenerationType.AUTO;
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name= "cinema")
+@Data
+@NoArgsConstructor
 public class Cinema {
     @Id
-    @GeneratedValue(strategy = AUTO)
-    private int id_list;
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name= "film_name")
-    private String namefilm;
-    @Column(name = "lich_chieu")
-    private String lichchieu;
-    @Column(name = "name_rap")
-    private String namerap;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "hotline")
+    private String hotline;
 
-    public Cinema(int id,String namefilm, String namerap, String lichchieu) {
-        this.id=id;
-        this.namefilm = namefilm;
-        this.namerap = namerap;
-        this.lichchieu = lichchieu;
-    }
-
-    public int getId_list() {
-        return id_list;
-    }
-
-    public void setId_list(int id_list) {
-        this.id_list = id_list;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNamefilm() {
-        return namefilm;
-    }
-
-    public void setNamefilm(String namefilm) {
-        this.namefilm = namefilm;
-    }
-
-    public String getLichchieu() {
-        return lichchieu;
-    }
-
-    public void setLichchieu(String lichchieu) {
-        this.lichchieu = lichchieu;
-    }
-
-    public String getNamerap() {
-        return namerap;
-    }
-
-    public void setNamerap(String namerap) {
-        this.namerap = namerap;
-    }
-
-    @Override
-    public String toString() {
-        return "Cinema{" +
-                "id_list=" + id_list +
-                ", id=" + id +
-                ", namefilm='" + namefilm + '\'' +
-                ", lichchieu='" + lichchieu + '\'' +
-                ", namerap='" + namerap + '\'' +
-                '}';
+    public Cinema(String name, String address, String hotline) {
+        this.name = name;
+        this.address = address;
+        this.hotline = hotline;
     }
 }
